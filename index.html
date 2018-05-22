@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Datahub</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+		
+    <script type="text/babel">
+			class SystemForm extends React.Component {
+				constructor(props) {
+					super(props);
+					this.state = {
+						system: '',
+						username: '',
+						password: ''
+					};
+					
+					this.handleChangeSystem = this.handleChangeSystem.bind(this);
+					this.handleChangeUsername = this.handleChangeUsername.bind(this);
+					this.handleChangePassword = this.handleChangePassword.bind(this);
+				}
+				
+				handleChangeSystem(event) {
+					this.setState({
+						system: event.target.value,
+						username: this.state.username,
+						password: this.state.password
+					});
+				}
+				
+				handleChangeUsername(event) {
+					this.setState({
+						system: this.state.system,
+						username: event.target.value,
+						password: this.state.password
+					});
+				}
+				
+				handleChangePassword(event) {
+					this.setState({
+						system: this.state.system,
+						username: this.state.username,
+						password: event.target.value
+					});
+				}
+				
+				render() {
+					return (
+						<div>
+							<label>
+								System:
+								<input type="text" value={this.state.system} onChange={this.handleChangeSystem} />
+							</label>
+							<label>
+								Username:
+								<input type="text" value={this.state.username} onChange={this.handleChangeUsername} />
+							</label>
+							<label>
+								Password:
+								<input type="password" value={this.state.password} onChange={this.handleChangePassword} />
+							</label>
+						</div>
+					);
+				}
+			}
+			function SystemInfo(props) {
+				return (
+					<div>
+						<SystemForm />
+					</div>
+				);
+			}
+			
+			function SplitView(props) {
+				return <h1> Split View </h1>;
+			}
+			
+			ReactDOM.render(
+				<div>
+					<SystemInfo />
+					<SplitView />
+				</div>,
+				document.getElementById('root')
+			);
+		</script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      To set up a production-ready React build environment, follow these instructions:
+      * https://reactjs.org/docs/add-react-to-a-new-app.html
+      * https://reactjs.org/docs/add-react-to-an-existing-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      * https://reactjs.org/docs/react-without-jsx.html
+      * https://reactjs.org/docs/cdn-links.html
+    -->
+  </body>
+</html>
