@@ -6,11 +6,32 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+		<link rel="stylesheet" href="index.css">
   </head>
   <body>
     <div id="root"></div>
 		
     <script type="text/babel">
+			
+			/*														RightPane																	*/
+			function RightPane(props) {
+				return (
+					<div className='right-pane'>
+						<h1>Right Pane</h1>
+					</div>
+				);
+			}
+			
+			/*														LeftPane																	*/
+			function LeftPane(props) {
+				return (
+					<div className='left-pane'>
+						<h1>Left Pane</h1>
+					</div>
+				);
+			}
+			
+			/*														SystemForm																*/
 			class SystemForm extends React.Component {
 				constructor(props) {
 					super(props);
@@ -49,9 +70,10 @@
 					});
 				}
 				
+				/*														system-form															*/
 				render() {
 					return (
-						<div>
+						<div className='system-form'>
 							<label>
 								System:
 								<input type="text" value={this.state.system} onChange={this.handleChangeSystem} />
@@ -68,18 +90,27 @@
 					);
 				}
 			}
+			
+			/* 															SplitView 															*/
+			function SplitView(props) {
+				return (
+					<div className='split-view'>
+						<LeftPane />
+						<RightPane />
+					</div>
+				);
+			}
+			
+			/*															SystemInfo															*/
 			function SystemInfo(props) {
 				return (
-					<div>
+					<div className='system-info'>
 						<SystemForm />
 					</div>
 				);
 			}
 			
-			function SplitView(props) {
-				return <h1> Split View </h1>;
-			}
-			
+			/*																root																	*/	
 			ReactDOM.render(
 				<div>
 					<SystemInfo />

@@ -1,0 +1,23 @@
+.right-pane {
+	border: 1px solid red;
+}
+
+.left-pane {
+	border: 1px solid red;
+}
+
+.system-form {
+	border: 1px solid red;
+}
+
+.split-view {
+	border: 1px solid red;
+}
+
+.system-info {
+	border: 1px solid red;
+}
+
+#root {
+	border: 1px solid blue;
+}
